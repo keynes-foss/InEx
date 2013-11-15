@@ -49,13 +49,64 @@
         image.scale(0.5).setCoords();
         canvas.add(image);
         canvas.calcOffset();
-        canvas.setActiveObject(image);
 
         b2 = image.clone();
         canvas.add(b2);
 
 
       });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/e/e0/Cell-Processor.jpg', function(image) {
+        image.set({
+          left: 500,
+          top: 323,
+          width: 320,
+          height:95,
+          angle:90
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+
+        b2 = image.clone();
+        canvas.add(b2);
+
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/5/57/Intel_Pentium_Processor_%28frontside%29.jpg', function(image) {
+        image.set({
+          left: 630,
+          top: 250,
+          width: 320,
+          height:95,
+          angle:95
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+
+        b2 = image.clone();
+        canvas.add(b2);
+
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/e/e4/Conroe_die.png', function(image) {
+        image.set({
+          left: 550,
+          top: 353,
+          width: 320,
+          height:95,
+          angle:23
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+
+        b2 = image.clone();
+        canvas.add(b2);
+
+
+      });
+
     })();
 
     window.onscroll = function() {
