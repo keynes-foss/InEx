@@ -40,8 +40,8 @@
       });
       fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/3/3c/DDR_RAM-3.jpg', function(image) {
         image.set({
-          left: 330,
-          top: 350,
+          left: 400,
+          top: 400,
           width: 320,
           height:95,
           angle:90
@@ -50,6 +50,10 @@
         canvas.add(image);
         canvas.calcOffset();
         canvas.setActiveObject(image);
+
+        b2 = image.clone();
+        canvas.add(b2);
+
 
       });
     })();
