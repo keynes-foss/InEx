@@ -20,8 +20,9 @@
       fabric.Object.prototype.transparentCorners = false;
 
       var canvas = this.__canvas = new fabric.Canvas('c');
-
-
+      canvas.setHeight($(window).height()-100);
+      canvas.setWidth($(window).width());
+      
       // complex shapes
       fabric.loadSVGFromURL('assets/57.svg', function(objects, options) {
         var shape = fabric.util.groupSVGElements(objects, options);
@@ -48,35 +49,6 @@
         canvas.setActiveObject(image);
 
       });
-
-
-      // events
-      (function(){
-        var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10 });
-        var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia' });
-        var group = new fabric.Group([ rect, text ], { left: 250, top: 1320 });
-
-        canvas.add(group).calcOffset();
-
-        group.on('mousedown', function() {
-          text.text = 'Mouse down';
-        });
-        group.on('mouseup', function() {
-          text.text = 'Mouse up';
-        });
-        group.on('scaling', function() {
-          text.text = 'Scaling';
-        });
-        group.on('moving', function() {
-          text.text = 'Moving';
-        });
-        group.on('rotating', function() {
-          text.text = 'Rotating';
-        });
-        group.on('mousemove', function() {
-          text.text = 'Mouse move';
-        });
-      })();
     })();
 
     window.onscroll = function() {
