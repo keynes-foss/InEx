@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header></header>
+    <article>
+      <canvas id="c"></canvas>
+    </article>
+    <footer>&copy; 2013 MMo.IT</footer>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="http://fabricjs.com/lib/fabric.js"></script>
+    <script>
+    (function(){
+      fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+      fabric.Object.prototype.transparentCorners = false;
+
+      var canvas = this.__canvas = new fabric.Canvas('c');
+
+
+      // complex shapes
+      fabric.loadSVGFromURL('assets/57.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 400,
+          top: 110,
+          angle: -15
+        })
+        .scale(0.3);
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+
+      // images
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/f/f1/MicroATX_Motherboard_with_AMD_Athlon_Processor_Digon3.jpg', function(image) {
+        image.set({
+          left: 130,
+          top: 350,
+          angle: 10
+        });
+        image.scale(0.3).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+
+
+      // events
+      (function(){
+        var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10 });
+        var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia' });
+        var group = new fabric.Group([ rect, text ], { left: 250, top: 1320 });
+
+        canvas.add(group).calcOffset();
+
+        group.on('mousedown', function() {
+          text.text = 'Mouse down';
+        });
+        group.on('mouseup', function() {
+          text.text = 'Mouse up';
+        });
+        group.on('scaling', function() {
+          text.text = 'Scaling';
+        });
+        group.on('moving', function() {
+          text.text = 'Moving';
+        });
+        group.on('rotating', function() {
+          text.text = 'Rotating';
+        });
+        group.on('mousemove', function() {
+          text.text = 'Mouse move';
+        });
+      })();
+    })();
+
+    window.onscroll = function() {
+      if (typeof __image === 'undefined') return;
+      animate();
+      window.onscroll = null;
+    };
+  </script>
+  </body>
+</html>
