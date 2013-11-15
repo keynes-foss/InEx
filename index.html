@@ -10,7 +10,9 @@
       bottom:0px;
       background-color:white;
       height:20px;
-      font-size:20px;
+      font-size:15px;
+      width:100%;
+      text-align: center;
     }
     
     </style>
@@ -25,35 +27,6 @@
     </div>
     <footer>&copy; 2013 MMo.IT</footer>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <script src="http://fabricjs.com/lib/fabric.js"></script>
     
-  <script>
-    (function(){
-      fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
-      fabric.Object.prototype.transparentCorners = false;
-
-      var canvas = this.__canvas = new fabric.Canvas('intro-canvas');
-
-      // images
-      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/d/d7/PSX-SCPH-5001-Motherboard.jpg', function(image) {
-        image.set({
-          left: 130,
-          top: 350,
-          angle: 10
-        });
-        image.scale(0.3).setCoords();
-        canvas.add(image);
-        canvas.calcOffset();
-        canvas.setActiveObject(image);
-      });
-    })();
-
-
-    window.onscroll = function() {
-      if (typeof __image === 'undefined') return;
-      animate();
-      window.onscroll = null;
-    };
-  </script>
   </body>
 </html>
