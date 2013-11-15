@@ -23,14 +23,27 @@
       canvas.setHeight($(window).height()-100);
       canvas.setWidth($(window).width());
 
+
       // images
       fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/f/f1/MicroATX_Motherboard_with_AMD_Athlon_Processor_Digon3.jpg', function(image) {
         image.set({
           left: 130,
           top: 350,
-          angle: 10
+          width: 200
         });
-        image.scale(0.3).setCoords();
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/3/3c/DDR_RAM-3.jpg', function(image) {
+        image.set({
+          left: 130,
+          top: 350,
+          width: 200
+        });
+        image.scale(0.5).setCoords();
         canvas.add(image);
         canvas.calcOffset();
         canvas.setActiveObject(image);
