@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/InEx">Corso Eccellenza Informatica</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li><a href="struct.html">Strutture</a></li>
+      <li><a href="http://it.wikipedia.org/wiki/Utente:Mmo/SysOp" target="_blank">Storia</a></li>
+      <li><a href="web.html">Internet</a></li>
+      <li><a href="#">Linguaggi</a></li>
+      <li><a href="#">Storia</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+    </header>
+    <article>
+      <a href="http://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/historical.html" target="_blank">CyberGeography</a>
+      <a href="http://www.computerhistory.org/timeline/?category=net" target="_blank">Computer History Museum</a>
+    </article>
+    <footer>&copy; 2013 MMo.IT</footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="http://fabricjs.com/lib/fabric.js"></script>
+    <script>
+    (function(){
+      fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+      fabric.Object.prototype.transparentCorners = false;
+
+      var canvas = this.__canvas = new fabric.Canvas('c');
+      canvas.setHeight($(window).height()-100);
+      canvas.setWidth($(window).width());
+
+
+      // images
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/f/f1/MicroATX_Motherboard_with_AMD_Athlon_Processor_Digon3.jpg', function(image) {
+        image.set({
+          left: 130,
+          top: 350,
+          width: 276,
+          height:240
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/3/3c/DDR_RAM-3.jpg', function(image) {
+        image.set({
+          left: 400,
+          top: 400,
+          width: 320,
+          height:95,
+          angle:90
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/e/e0/Cell-Processor.jpg', function(image) {
+        image.set({
+          left: 500,
+          top: 323,
+          width: 200,
+          height:225,
+          angle:90
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/5/57/Intel_Pentium_Processor_%28frontside%29.jpg', function(image) {
+        image.set({
+          left: 630,
+          top: 250,
+          width: 200,
+          height:210,
+          angle:95
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+      fabric.Image.fromURL('http://upload.wikimedia.org/wikipedia/commons/e/e4/Conroe_die.png', function(image) {
+        image.set({
+          left: 550,
+          top: 353,
+          width: 320,
+          height:415,
+          angle:23
+        });
+        image.scale(0.5).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+      });
+
+    })();
+
+    window.onscroll = function() {
+      if (typeof __image === 'undefined') return;
+      animate();
+      window.onscroll = null;
+    };
+  </script>
+  </body>
+</html>
